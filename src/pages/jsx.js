@@ -28,7 +28,7 @@ export class jsxPage extends Component {
     let name = 'fhh'
     let nameElement = <span>{name}</span>
     let isShow = this.state.isShow
-    return (
+    return ([
       <div style={{padding: '20px'}}>
         jsxPage
         <div>{name}</div>
@@ -61,7 +61,9 @@ export class jsxPage extends Component {
             )
           }
         </div>
-      </div>
+      </div>,
+      <div>1111</div>
+    ]
     )
   }
 }

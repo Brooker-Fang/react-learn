@@ -7,7 +7,7 @@ export class PropsPage extends Component {
       <div>
         父组件PropsPage
         <div>
-          <ButtonCom text="父组件传值"></ButtonCom>
+          <ButtonCom text="test"></ButtonCom>
           <ButtonCom ></ButtonCom>
         </div>
       </div>

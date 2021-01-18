@@ -17,9 +17,9 @@ export class LifeCycle extends Component {
   componentWillMount() {
     console.log('componentWillMount')
   }
-  UNSAFE_componentWillMount() {
-    console.log('componentWillMount')
-  }
+  // UNSAFE_componentWillMount() {
+  //   console.log('componentWillMount')
+  // }
   componentDidMount() {
     console.log('componentDidMount')
   }
@@ -35,8 +35,8 @@ export class LifeCycle extends Component {
     return (
       <div>
         LifeCycle
-        <div>count: {count}</div>
-        <MemoChild onClick={this.handlerClick} name={name}></MemoChild>
+        {/* <div>count: {count}</div>
+        <MemoChild onClick={this.handlerClick} name={name}></MemoChild> */}
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import HelloWorld from '../components/Hello'
+import HelloWorldCom from '../components/Hello'
 import HelloFunc from '../components/HelloFunc'
 import './style.css'
 import store from '../store/index'
@@ -44,7 +44,7 @@ class Main extends Component{
     let item = this.state.list[0]
     return (
       <div>
-        <HelloWorld  {...item}/>
+        <HelloWorldCom  {...item}/>
         <HelloFunc  {...item}></HelloFunc>
         {/* <HelloFunc name={this.state.list[0].name}></HelloFunc> */}
         
