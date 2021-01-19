@@ -8,6 +8,7 @@ import useMemoCom from './useMemo'
 import useReducerCom from './useReducerCom'
 import useContextCom from './useContextCom'
 import useRefCom from './useRefCom'
+import CustomHooks from './customHooks'
 export class HooksCom extends Component {
   render() {
     let base = '/hooks-page'
@@ -51,6 +52,11 @@ export class HooksCom extends Component {
         title: 'useRef',
         routePath: '/use-ref',
         component: useRefCom,
+      },
+      {
+        title: 'useCustomHooks',
+        routePath: '/use--custom-hooks',
+        component: CustomHooks,
       },
     ]
     return (
