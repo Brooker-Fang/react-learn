@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
+/* 
+  useEffect(() => {})   => 只传入第一个参数，则相当于 componentDidMount, componentDidUpdate
+  useEffect(() => {}, []) => 第二个参数传入空数组， 则相当于 componentDidMount
+  useEffect(() => () => {}) => 返回返回一个函数，则相当于componentWillUnMount
+*/
 export default () => {
   const [count, setCount] = useState(0)
   const setCountClick = () => {

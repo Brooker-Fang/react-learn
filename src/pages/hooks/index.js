@@ -5,7 +5,9 @@ import useEffectCom from './useEffectCom'
 import memoCom from './memo'
 import useCallbackCom from './useCallback'
 import useMemoCom from './useMemo'
-
+import useReducerCom from './useReducerCom'
+import useContextCom from './useContextCom'
+import useRefCom from './useRefCom'
 export class HooksCom extends Component {
   render() {
     let base = '/hooks-page'
@@ -34,6 +36,21 @@ export class HooksCom extends Component {
         title: 'useMemo',
         routePath: '/use-memo',
         component: useMemoCom,
+      },
+      {
+        title: 'useReducer',
+        routePath: '/use-reducer',
+        component: useReducerCom,
+      },
+      {
+        title: 'useContext',
+        routePath: '/use-context',
+        component: useContextCom,
+      },
+      {
+        title: 'useRef',
+        routePath: '/use-ref',
+        component: useRefCom,
       },
     ]
     return (
