@@ -13,7 +13,12 @@ const useGetUser = () => {
 }
 const useUpdateInput = (initValue) => {
   const [value, setValue] = useState(initValue)
+  return {
+    value,
+    onChange: event => setValue(event.target.value)
+  }
 }
 export {
-  useGetUser
+  useGetUser,
+  useUpdateInput
 }
