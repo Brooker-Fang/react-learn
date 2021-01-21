@@ -13,6 +13,7 @@ const JsxPage = lazy(() => import('./pages/jsx'));
 const StatePage = lazy(() => import('./pages/state'));
 const PropsPage = lazy(() => import('./pages/propsPage'));
 const HooksPage = lazy(() => import('./pages/hooks'));
+const FormikPage = lazy(() => import('./pages/formik'))
 function App() {
   return (
     <Router>
@@ -35,6 +36,9 @@ function App() {
         <li>
           <Link to="/hooks-page">Hooks</Link>
         </li>
+        <li>
+          <Link to="/formik-page">Formik</Link>
+        </li>
       </ul>
       <Suspense fallback={<div>loading...</div>}>
         <Switch>
@@ -44,6 +48,7 @@ function App() {
           <Route path="/state-page" component={StatePage}></Route>
           <Route path="/props-page" component={PropsPage}></Route>
           <Route path="/hooks-page" component={HooksPage}></Route>
+          <Route path="/formik-page" component={FormikPage}></Route>
         </Switch>
       </Suspense>
     </Router>
