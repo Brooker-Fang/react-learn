@@ -3,7 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
 export default () => {
-  const initialValues = {}
+  const initialValues = {
+    username: '',
+    content: '',
+    subject: ''
+  }
   const handleSubmit = (values) => {
     console.log(values)
   }
@@ -18,8 +22,15 @@ export default () => {
     validationSchema={schema}
     >
       <Form>
-        <Field name="username"></Field>
-        <ErrorMessage name="username"></ErrorMessage>
+        <Field className="text-red-500 text-xs italic"  placeholder="username" name="username"></Field>
+        <ErrorMessage component="div" className="text-red-500 text-xs italic" name="username"></ErrorMessage>
+        {/* as 为input类型 */}
+        <Field as="textarea" name="context" ></Field>
+        <Field as="select" name="subject" >
+          <option value="a">前端</option>
+          <option value="b">后端</option>
+        </Field>
+        <input type="submit"></input>
       </Form>
   </Formik>
   )
