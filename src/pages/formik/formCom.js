@@ -1,12 +1,14 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import MyInputField from './cust-form-com'
 
 export default () => {
   const initialValues = {
     username: '',
     content: '',
-    subject: ''
+    subject: '',
+    password: ''
   }
   const handleSubmit = (values) => {
     console.log(values)
@@ -24,6 +26,7 @@ export default () => {
       <Form>
         <Field className="text-red-500 text-xs italic"  placeholder="username" name="username"></Field>
         <ErrorMessage component="div" className="text-red-500 text-xs italic" name="username"></ErrorMessage>
+        <MyInputField id="password" label="密码" name="password" placeholder="请输入密码" type="password"></MyInputField>
         {/* as 为input类型 */}
         <Field as="textarea" name="context" ></Field>
         <Field as="select" name="subject" >
