@@ -1,14 +1,15 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import MyInputField from './cust-form-com'
+import { MyInputField, Checkbox } from './cust-form-com'
 
 export default () => {
   const initialValues = {
     username: '',
     content: '',
     subject: '',
-    password: ''
+    password: '',
+    hobbies: []
   }
   const handleSubmit = (values) => {
     console.log(values)
@@ -33,6 +34,9 @@ export default () => {
           <option value="a">前端</option>
           <option value="b">后端</option>
         </Field>
+        <Checkbox value="1" label="篮球" name="hobbies"></Checkbox>
+        <Checkbox value="2" label="足球" name="hobbies"></Checkbox>
+        <Checkbox value="3" label="羽毛球" name="hobbies"></Checkbox>
         <input type="submit"></input>
       </Form>
   </Formik>

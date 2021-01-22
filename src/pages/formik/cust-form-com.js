@@ -9,4 +9,24 @@ function MyInputField ({label, ...props}) {
     { meta.touched && meta.error && <span>{meta.error}</span>}
   </div>
 }
-export default MyInputField
+function Checkbox ({label, ...props}) {
+  const [field, meta, helper] = useField(props)
+  const { value } = meta
+  const { setValue } = helper
+  const handleChange = () => {
+    const set = new Set(value)
+    if (set.has(props.value)) {
+      set.delete(props.value)
+    } else {
+      set.add(props.value)
+    }
+    setValue([...set])
+  }
+  return (<div>
+    <label htmlFor="">
+      <input type="checkbox" {...props} onChange={handleChange}></input>
+      {label}
+    </label>
+  </div>)
+}
+export { MyInputField, Checkbox }
