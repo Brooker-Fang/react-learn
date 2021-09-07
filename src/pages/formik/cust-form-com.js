@@ -22,6 +22,7 @@ function Checkbox ({label, ...props}) {
     }
     setValue([...set])
   }
+  console.log(field)
   return (<div>
     <label htmlFor="">
       <input type="checkbox" {...props} onChange={handleChange}></input>

@@ -11,6 +11,7 @@ function Child() {
     Child
     <ChildTwo></ChildTwo>
     <ChildThree></ChildThree>
+    <ChildClass></ChildClass>
   </div>
 }
 function ChildTwo(){
@@ -30,4 +31,13 @@ function ChildThree () {
       }
     }
   </countContext.Consumer>
+}
+// 类组件可以使用静态属性classType接收context对象，但只能订阅单一的context
+class ChildClass extends React.Component{
+  static contextType = countContext;
+  render() {
+    return <div>
+    ChildClass{this.context}
+  </div>
+  }
 }
