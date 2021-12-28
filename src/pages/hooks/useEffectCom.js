@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 /* 
   useEffect(() => {})   => 只传入第一个参数，则相当于 componentDidMount, componentDidUpdate
@@ -30,6 +30,22 @@ export default () => {
     }
   })
   console.log('effect render')
+
+  // useEffect 延迟调用会存在闭包问题,使用 setTimeout、setInterval、Promise.then等
+  // 使用useRef来解决
+  const countRef = useRef(count)
+  countRef.current = count;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // 因为闭包问题 count值一直为 0
+      // console.log('setTimeout count====', count);
+      
+      console.log('setTimeout count====', countRef.current);
+    }, 3000);
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [])
   return (
     <div>
       count: {count}

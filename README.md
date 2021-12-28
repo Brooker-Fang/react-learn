@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 总结
 
-## Available Scripts
+### useMemo
+useMemo(() => {
+  ...
+  return val
+}, [])
+### useCallback 
+useCallback(() => {
+  ...
+  return () => {}
+}, [])
+useCallback 可以记住函数，避免函数重复生成，这样函数在传递给子组件时，可以避免子组件重复渲染，提高性能。
+useCallback 是要和 shouldComponentUpdate/React.memo 配套使用的
 
-In the project directory, you can run:
+### useCallback 和 useMemo区别
+useCallback是缓存函数
+useMemo是缓存值
+### useEffect
++ useEffect(() => {})   => 只传入第一个参数，每次render都回重新执行，相当于 componentDidMount, componentDidUpdate
++ useEffect(() => {}, []) => 第二个参数传入空数组，只会执行一次，则相当于 componentDidMount
++ useEffect(() => () => {}) => 返回返回一个函数，返回的函数 会在下一个effect之前 调用，一般用来清除 useEffect里的副作用，如清除定时器、dom缓存，相当于componentWillUnMount
++ useEffect 延迟调用会存在闭包问题,使用 setTimeout、setInterval、Promise.then等
+  + 在有延迟调用场景时，可以通过 ref 来解决闭包问题
+## 其他
+https://zhuanlan.zhihu.com/p/450513902
++ 不是所有的依赖都必须放到依赖数组中
+  + 不要使用eslint-plugin-react-hooks插件，或者可以选择性忽略该插件的警告。
+  + 只有当变量变化时，需要触发 useEffect 函数执行 才把依赖变量放到依赖数组中
+  + 在有延迟调用场景时，可以通过 ref 来解决闭包问题
++ 尽量不要用 useCallback
+  + useCallback 大部分场景没有提升性能
+  + useCallback 让代码可读性变差
++ useMemo 建议适当使用
++ useState 的正确使用
+  + 能用其他状态计算出来就不用单独声明状态
+  + 保证数据源唯一
+    + 不要既存在 redux 中，又在组件中定义了一个 state 存储。
+    + 不要既存在父级组件中，又在当前组件中定义了一个 state 存储。
+    + 不要既存在 url query 中，又在组件中定义了一个 state 存储。
+  + 多个useState 适当合并为object
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
