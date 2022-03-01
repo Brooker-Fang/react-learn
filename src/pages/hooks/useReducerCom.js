@@ -8,6 +8,7 @@ function reducer (state, action ) {
   }
 }
 // userReducer 是另一种让函数组件保存状态的方式
+// 使用场景：更新数据的逻辑比较复杂，用useReducer也可以便于复用
 export default () => {
   // userReducer是升级版的useState
   // 可以把dispatch 往下传递，避免state改变后，引起子组件的重新渲染，
