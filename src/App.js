@@ -14,6 +14,7 @@ const StatePage = lazy(() => import('./pages/state'));
 const PropsPage = lazy(() => import('./pages/propsPage'));
 const HooksPage = lazy(() => import('./pages/hooks'));
 const FormikPage = lazy(() => import('./pages/formik'))
+const DragPage = lazy(() => import('./pages/drag-page'))
 function App() {
   return (
     <Router>
@@ -39,6 +40,9 @@ function App() {
         <li>
           <Link to="/formik-page">Formik</Link>
         </li>
+        <li>
+          <Link to="/drag-page">DragPage</Link>
+        </li>
       </ul>
       <Suspense fallback={<div>loading...</div>}>
         <Switch>
@@ -49,6 +53,7 @@ function App() {
           <Route path="/props-page" component={PropsPage}></Route>
           <Route path="/hooks-page" component={HooksPage}></Route>
           <Route path="/formik-page" component={FormikPage}></Route>
+          <Route path="/drag-page" component={DragPage}></Route>
         </Switch>
       </Suspense>
     </Router>
